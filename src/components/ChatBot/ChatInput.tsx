@@ -6,9 +6,18 @@ import type { Message } from "./ChatWidget";
 type ChatInputProps = {
   messages: Message[];
   setMessages: React.Dispatch<React.SetStateAction<Message[]>>;
+  setActiveView: React.Dispatch<
+    React.SetStateAction<
+      "chat" | "signup" | "profile" | "about" | "feedback" | "map"
+    >
+  >;
 };
 
-export const ChatInput = ({ messages, setMessages }: ChatInputProps) => {
+export const ChatInput = ({
+  messages,
+  setMessages,
+  setActiveView,
+}: ChatInputProps) => {
   const [input, setInput] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -28,6 +37,7 @@ export const ChatInput = ({ messages, setMessages }: ChatInputProps) => {
     };
 
     setMessages([...messages, userMsg, botMsg]);
+    setActiveView("chat");
     setInput("");
   };
 
