@@ -42,7 +42,7 @@ const options = [
   },
   {
     key: "upcomingTechMeetups",
-    query: "Show me upcoming tech meetups in Berlin",
+    query: "Show me upcoming tech meetups",
     body: {
       query: "Tech Meetup",
       topic: "event",
