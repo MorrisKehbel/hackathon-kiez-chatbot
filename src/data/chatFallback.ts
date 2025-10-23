@@ -10,13 +10,13 @@ export interface ChatMessage {
 }
 
 export interface ChatBotParams {
-  messages: string; // jetzt nur noch String
+  messages: string;
   asstMsg: Message;
   setMessages: React.Dispatch<React.SetStateAction<Message[]>>;
 }
 
 export const chatBot = async ({
-  messages, // String statt ChatMessage[]
+  messages,
   asstMsg,
   setMessages,
 }: ChatBotParams) => {
@@ -29,7 +29,7 @@ export const chatBot = async ({
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ messages }), // Payload: { messages: "user input" }
+      body: JSON.stringify({ messages }),
     });
 
     if (!res.ok) {
