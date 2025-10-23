@@ -20,8 +20,6 @@ export const chatBot = async ({
   asstMsg,
   setMessages,
 }: ChatBotParams) => {
-  console.log(JSON.stringify({ messages }));
-
   try {
     const res = await fetch(`${baseURL}`, {
       method: "POST",

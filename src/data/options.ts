@@ -15,7 +15,6 @@ export const fetchKiezData = async (body: Record<string, any>) => {
     }
 
     const data = await res.json();
-    console.log(data);
 
     return data.items;
   } catch (error) {

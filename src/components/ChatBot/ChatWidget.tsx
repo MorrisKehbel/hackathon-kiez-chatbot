@@ -13,7 +13,7 @@ export type Message = {
 const options = [
   {
     key: "techJobsKreuzberg",
-    query: "Show me 5 Software Developer jobs in Kreuzberg",
+    query: "Show me Software Developer jobs in Kreuzberg",
     body: {
       query: "Software Developer",
       topic: "job",
@@ -23,28 +23,26 @@ const options = [
   },
   {
     key: "germanCoursesMitte",
-    query: "I want 5 German courses (A1) in Mitte",
+    query: "Search for German courses",
     body: {
       query: "A1 German course",
       topic: "course",
-      district: "Mitte",
+      scope: "all",
       limit: 5,
     },
   },
   {
     key: "pythonJobs",
-    query: "Find 5 Python jobs across Berlin",
+    query: "Where can I find coworking spaces",
     body: {
-      query: "Python Developer",
-      topic: "job",
+      query: "Coworking",
       scope: "all",
-      keyword: "Python",
       limit: 5,
     },
   },
   {
     key: "upcomingTechMeetups",
-    query: "Show me 5 upcoming tech meetups in Berlin",
+    query: "Show me upcoming tech meetups in Berlin",
     body: {
       query: "Tech Meetup",
       topic: "event",
