@@ -42,7 +42,7 @@ export const ChatBox = ({ messages, setMessages, onClose }: ChatBoxProps) => {
 
   return (
     <motion.div
-      className="fixed bottom-0 md:bottom-6 right-0 mx-auto md:mx-0 md:right-6 w-full md:w-100 h-160 md:h-200 bg-gray-100 border border-gray-200 rounded-t-2xl md:rounded-2xl shadow-xl flex flex-col overflow-hidden z-50"
+      className="fixed max-h-[calc(100vh-2rem)] bottom-0 md:bottom-6 right-0 mx-auto md:mx-0 md:right-6 w-full md:w-100 h-160 md:h-200 bg-white border border-gray-200 shadow-[0_0_10px_rgba(0,0,0,0.1)] flex flex-col overflow-hidden z-50"
       variants={chatVariants}
       layout
       initial="hidden"
@@ -68,7 +68,7 @@ export const ChatBox = ({ messages, setMessages, onClose }: ChatBoxProps) => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          className="bg-white border border-gray-200 rounded-lg shadow-md p-3 m-2"
+          className="bg-white border border-gray-200 shadow-md p-3 m-2 divide-y divide-gray-200"
         >
           {user ? (
             <>
@@ -77,7 +77,9 @@ export const ChatBox = ({ messages, setMessages, onClose }: ChatBoxProps) => {
                   setActiveView("profile");
                   setMenuOpen(false);
                 }}
-                className="w-full text-left p-2 hover:bg-gray-100 rounded cursor-pointer"
+                className={`w-full text-left p-2 hover:bg-gray-100 rounded cursor-pointer ${
+                  activeView === "profile" ? "text-red-700" : ""
+                }`}
               >
                 My Profile
               </button>
@@ -89,7 +91,9 @@ export const ChatBox = ({ messages, setMessages, onClose }: ChatBoxProps) => {
                   setActiveView("signup");
                   setMenuOpen(false);
                 }}
-                className="w-full text-left p-2 hover:bg-gray-100 rounded cursor-pointer"
+                className={`w-full text-left p-2 hover:bg-gray-100 rounded cursor-pointer ${
+                  activeView === "signup" ? "text-red-700" : ""
+                }`}
               >
                 Sign-up/Sign-in
               </button>
@@ -101,7 +105,9 @@ export const ChatBox = ({ messages, setMessages, onClose }: ChatBoxProps) => {
               setActiveView("map");
               setMenuOpen(false);
             }}
-            className="w-full text-left p-2 hover:bg-gray-100 rounded cursor-pointer"
+            className={`w-full text-left p-2 hover:bg-gray-100 rounded cursor-pointer ${
+              activeView === "map" ? "text-red-700" : ""
+            }`}
           >
             Berlin Map
           </button>
@@ -110,7 +116,9 @@ export const ChatBox = ({ messages, setMessages, onClose }: ChatBoxProps) => {
               setActiveView("about");
               setMenuOpen(false);
             }}
-            className="w-full text-left p-2 hover:bg-gray-100 rounded cursor-pointer"
+            className={`w-full text-left p-2 hover:bg-gray-100 rounded cursor-pointer ${
+              activeView === "about" ? "text-red-700" : ""
+            }`}
           >
             About BÄR BUDDY
           </button>
@@ -119,7 +127,9 @@ export const ChatBox = ({ messages, setMessages, onClose }: ChatBoxProps) => {
               setActiveView("feedback");
               setMenuOpen(false);
             }}
-            className="w-full text-left p-2 hover:bg-gray-100 rounded cursor-pointer"
+            className={`w-full text-left p-2 hover:bg-gray-100 rounded cursor-pointer ${
+              activeView === "feedback" ? "text-red-700" : ""
+            }`}
           >
             Feedback
           </button>

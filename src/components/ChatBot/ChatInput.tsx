@@ -46,7 +46,7 @@ export const ChatInput = ({
       onSubmit={handleSubmit}
       className="p-3 border-t border-gray-200 flex items-center"
     >
-      <div className="flex w-full shadow-lg">
+      <div className="flex w-full shadow-[0_0_10px_rgba(0,0,0,0.1)]">
         <img
           src={bearbuddyIcon}
           alt="Buddy"
@@ -60,7 +60,7 @@ export const ChatInput = ({
             onChange={(e) => setInput(e.target.value)}
             type="text"
             placeholder="Ask me as your buddy!"
-            className="w-full h-14 rounded-tr-lg rounded-br-lg pl-4 py-4 pr-10 text-sm focus:outline-none bg-gray-50 placeholder:select-none placeholder:text-gray-400"
+            className="w-full h-14 rounded-tr-lg rounded-br-lg pl-4 py-4 pr-10 text-sm focus:outline-none bg-white placeholder:select-none placeholder:text-gray-400 placeholder:font-semibold"
           />
           <button
             type="submit"
