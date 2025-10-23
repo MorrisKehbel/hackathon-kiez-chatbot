@@ -44,7 +44,7 @@ export const About = () => (
       .
     </p>
 
-    <div className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+    <div className="bg-white border border-gray-200 p-4 shadow-sm">
       <h3 className="text-lg font-semibold text-gray-800 mb-2">How it works</h3>
       <ul className="list-disc list-inside text-gray-700 space-y-1">
         <li>
@@ -76,7 +76,7 @@ export const About = () => (
       activity.
     </p>
 
-    <div className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+    <div className="bg-white border border-gray-200 p-4 shadow-sm">
       <h3 className="text-lg font-semibold text-gray-800 mb-2">
         Dual-Sided AI Functionality
       </h3>

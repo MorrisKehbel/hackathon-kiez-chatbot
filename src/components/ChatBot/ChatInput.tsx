@@ -46,7 +46,7 @@ export const ChatInput = ({
       onSubmit={handleSubmit}
       className="p-3 border-t border-gray-200 flex items-center"
     >
-      <div className="flex w-full shadow-[0_0_10px_rgba(0,0,0,0.1)]">
+      <div className="flex w-full border border-gray-300">
         <img
           src={bearbuddyIcon}
           alt="Buddy"

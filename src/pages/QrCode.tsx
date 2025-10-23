@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export const QrCode = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-linear-to-br from-indigo-950 via-purple-900 to-fuchsia-800 text-white overflow-hidden relative">
+    <div className="h-dvh flex flex-col items-center justify-center bg-linear-to-br from-indigo-950 via-purple-900 to-fuchsia-800 text-white overflow-hidden relative">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_70%)]" />
 
       <motion.h1
