@@ -21,7 +21,7 @@ export const ChatButton = ({ onClick }: ChatButtonProps) => {
         initial={{ width: 80 }} // img width * 4
         animate={{ width: hovered ? 264 : 80 }}
         transition={{ type: "spring", stiffness: 250, damping: 22 }}
-        className="flex items-center justify-start overflow-hidden bg-gray-100 text-gray-800  cursor-pointer"
+        className="flex items-center justify-start overflow-hidden bg-gray-100 text-gray-900 cursor-pointer"
       >
         <div className="flex items-center gap-3">
           <img src={bearbuddyIcon} alt="Open Chat" className="w-20 h-18" />

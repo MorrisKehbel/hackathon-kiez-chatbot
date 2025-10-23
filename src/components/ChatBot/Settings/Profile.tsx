@@ -17,10 +17,10 @@ export const Profile = () => {
       </div>
 
       <div className="flex gap-4">
-        <button className="flex-1 px-2 py-1 font-semibold cursor-pointer border-2 border-emerald-400 bg-gray-50 hover:bg-white text-gray-700">
+        <button className="flex-1 px-2 py-1 font-semibold cursor-pointer border-2 border-gray-400 bg-gray-50 hover:bg-white text-gray-700">
           Download
         </button>
-        <button className="flex-1 px-2 py-1 font-semibold cursor-pointer border-2 border-emerald-400 bg-gray-50 hover:bg-white text-gray-700">
+        <button className="flex-1 px-2 py-1 font-semibold cursor-pointer border-2 border-gray-400 bg-gray-50 hover:bg-white text-gray-700">
           Print
         </button>
       </div>
