@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IoSend } from "react-icons/io5";
 import bearbuddyIcon from "../../assets/bearbuddy_icon.webp";
+import { fetchChatRes } from "../../data/chat";
 import type { Message } from "./ChatWidget";
 
 type ChatInputProps = {
@@ -20,7 +21,7 @@ export const ChatInput = ({
 }: ChatInputProps) => {
   const [input, setInput] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;
 
@@ -30,15 +31,72 @@ export const ChatInput = ({
       content: input,
     };
 
-    const botMsg: Message = {
-      id: crypto.randomUUID(),
-      role: "assistant",
-      content: "test response",
-    };
-
-    setMessages([...messages, userMsg, botMsg]);
-    setActiveView("chat");
+    setMessages([...messages, userMsg]);
     setInput("");
+    setActiveView("chat");
+    try {
+      const response = await fetchChatRes(input);
+
+      let content;
+      if (response.total === 0) {
+        content = (
+          <div className="p-3 mb-2 border shadow-sm bg-white text-sm text-gray-700">
+            No results found for your query, but keep exploring!
+          </div>
+        );
+      } else {
+        content = (
+          <div className="flex flex-col gap-2">
+            {response.items.map((item: any) => (
+              <div key={item.id} className="p-3 mb-2 border shadow-sm bg-white">
+                <h3 className="font-bold text-sm mb-1">{item.title}</h3>
+                <p className="text-xs text-gray-600 mb-1">
+                  {item.company} – {item.location}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {item.job_url && (
+                    <a
+                      href={item.job_url}
+                      target="_blank"
+                      className="text-red-600 text-xs hover:underline"
+                      rel="noreferrer"
+                    >
+                      View job
+                    </a>
+                  )}
+                  {item.job_url_direct && (
+                    <a
+                      href={item.job_url_direct}
+                      target="_blank"
+                      className="text-red-600 text-xs hover:underline"
+                      rel="noreferrer"
+                    >
+                      Apply directly
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        );
+      }
+
+      const botMsg: Message = {
+        id: crypto.randomUUID(),
+        role: "assistant",
+        content,
+      };
+
+      setMessages((prev) => [...prev, botMsg]);
+    } catch (error) {
+      console.error(error);
+      const errorMsg: Message = {
+        id: crypto.randomUUID(),
+        role: "assistant",
+        content: "Something went wrong while loading the response 😢",
+      };
+      setMessages((prev) => [...prev, errorMsg]);
+    }
   };
 
   return (

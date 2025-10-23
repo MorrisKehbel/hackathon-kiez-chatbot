@@ -4,8 +4,6 @@ import { QRCodeSVG } from "qrcode.react";
 export const Profile = () => {
   const { user } = useUser();
 
-  console.log(user);
-
   return (
     <div className="p-6 flex flex-col gap-6 overflow-y-auto h-full">
       <div className="bg-white p-4 border border-gray-300 flex flex-col gap-2">
