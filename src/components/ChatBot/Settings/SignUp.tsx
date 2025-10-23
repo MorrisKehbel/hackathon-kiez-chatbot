@@ -30,7 +30,7 @@ export const SignUp = ({ setActiveView }: SignUpProps) => {
     setName("");
     setEmail("");
     setPassword("");
-    setActiveView("profile");
+    setActiveView("chat");
   };
 
   return (
