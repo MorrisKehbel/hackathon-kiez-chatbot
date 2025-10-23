@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
 
 export type Message = {
   id: string;
-  role: "user" | "assistant";
+  role: "user" | "assistant" | "system";
   content: ReactNode;
 };
 
@@ -15,18 +15,18 @@ export const ChatWidget = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: crypto.randomUUID(),
-      role: "assistant",
+      role: "system",
       content: (
         <div className="flex flex-col gap-2">
           <p>How can I help you?</p>
-          <div className="flex flex-wrap gap-2 mt-2">
-            <button className="bg-red-600 text-white px-3 py-1 rounded-full hover:bg-red-500 cursor-pointer select-none">
+          <div className="flex flex-col gap-2 mt-2">
+            <button className="bg-gray-50 text-gray-900 font-semibold px-3 py-2 hover:bg-white border-2 border-orange-300 cursor-pointer select-none">
               Option 1
             </button>
-            <button className="bg-red-600 text-white px-3 py-1 rounded-full hover:bg-red-500 cursor-pointer select-none">
+            <button className="bg-gray-50 text-gray-900 font-semibold px-3 py-2 hover:bg-white border-2 border-orange-300 cursor-pointer select-none">
               Option 2
             </button>
-            <button className="bg-red-600 text-white px-3 py-1 rounded-full hover:bg-red-500 cursor-pointer select-none">
+            <button className="bg-gray-50 text-gray-900 font-semibold px-3 py-2 hover:bg-white border-2 border-orange-300 cursor-pointer select-none">
               Option 3
             </button>
           </div>
