@@ -15,14 +15,12 @@ type ChatBoxProps = {
 };
 
 export const ChatBox = ({ messages, setMessages, onClose }: ChatBoxProps) => {
-  const { user, loggedIn, logout } = useUser();
+  const { user, logout } = useUser();
   const chatRef = useRef<HTMLDivElement | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeView, setActiveView] = useState<
     "chat" | "signup" | "profile" | "about" | "feedback" | "map"
   >("chat");
-
-  console.log(user, loggedIn);
 
   useEffect(() => {
     if (chatRef.current) {

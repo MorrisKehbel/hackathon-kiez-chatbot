@@ -29,7 +29,7 @@ export const Feedback = () => {
           placeholder="Your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="p-2 border border-gray-300 rounded focus:outline-gray-400 placeholder:select-none placeholder:text-gray-400"
+          className="p-2 border border-gray-300 rounded focus:outline-gray-400 placeholder:select-none placeholder:text-gray-500"
         />
         <textarea
           placeholder="Your feedback"
@@ -38,11 +38,12 @@ export const Feedback = () => {
           onChange={(e) => setFeedback(e.target.value)}
           maxLength={500}
           rows={8}
-          className="p-2 border border-gray-300 rounded focus:outline-gray-400 resize-none placeholder:select-none placeholder:text-gray-400"
+          required
+          className="p-2 border border-gray-300 rounded focus:outline-gray-400 resize-none placeholder:select-none placeholder:text-gray-500"
         />
         <button
           type="submit"
-          className="bg-emerald-500 border-2 border-emerald-400 text-white font-semibold py-2 rounded hover:bg-emerald-400 cursor-pointer"
+          className="bg-white border-2 border-gray-600 text-gray-700 font-semibold py-2 hover:bg-gray-50 cursor-pointer"
         >
           Send
         </button>

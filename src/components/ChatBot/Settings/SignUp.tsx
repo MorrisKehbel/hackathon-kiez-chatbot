@@ -47,7 +47,7 @@ export const SignUp = ({ setActiveView }: SignUpProps) => {
           placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="p-2 border border-gray-300 rounded focus:outline-gray-400 placeholder:select-none placeholder:text-gray-400"
+          className="p-2 border border-gray-300 rounded focus:outline-gray-400 placeholder:select-none placeholder:text-gray-500"
         />
         <input
           type="email"
@@ -56,7 +56,7 @@ export const SignUp = ({ setActiveView }: SignUpProps) => {
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="p-2 border border-gray-300 rounded focus:outline-gray-400 placeholder:select-none placeholder:text-gray-400"
+          className="p-2 border border-gray-300 rounded focus:outline-gray-400 placeholder:select-none placeholder:text-gray-500"
         />
         <input
           type="password"
@@ -64,11 +64,11 @@ export const SignUp = ({ setActiveView }: SignUpProps) => {
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="p-2 border border-gray-300 rounded focus:outline-gray-400 placeholder:select-none placeholder:text-gray-400"
+          className="p-2 border border-gray-300 rounded focus:outline-gray-400 placeholder:select-none placeholder:text-gray-500"
         />
         <button
           type="submit"
-          className="bg-emerald-500 border-2 border-emerald-400 text-white font-semibold py-2 rounded hover:bg-emerald-400 cursor-pointer"
+          className="bg-white border-2 border-gray-600 hover:bg-gray-50 font-semibold py-2 cursor-pointer"
         >
           Register
         </button>
