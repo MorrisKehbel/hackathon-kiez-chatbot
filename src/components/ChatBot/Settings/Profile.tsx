@@ -1,4 +1,5 @@
 import { useUser } from "../../../context/UserProvider";
+import { QRCodeSVG } from "qrcode.react";
 
 export const Profile = () => {
   const { user } = useUser();
@@ -12,15 +13,21 @@ export const Profile = () => {
         <p className="text-gray-600">{user?.email}</p>
       </div>
 
-      <div className="w-full bg-gray-200 rounded-xl h-auto aspect-square flex items-center justify-center text-gray-500 text-lg font-semibold">
-        QR Code Placeholder
+      <div className="w-full bg-gray-200 rounded-xl h-auto aspect-square flex items-center justify-center">
+        <QRCodeSVG
+          value="hackathon-kiez-chatbot.onrender.com/qrcode"
+          size={256}
+          bgColor="#ffffff"
+          fgColor="#000000"
+          className="h-full w-full mx-auto"
+        />
       </div>
 
       <div className="flex gap-4">
-        <button className="flex-1 px-2 py-1 font-semibold cursor-pointer border-2 border-gray-400 bg-gray-50 hover:bg-white text-gray-700">
+        <button className="flex-1 px-2 py-1 font-semibold cursor-pointer border-2 border-gray-400 bg-white hover:bg-gray-50 text-gray-700">
           Download
         </button>
-        <button className="flex-1 px-2 py-1 font-semibold cursor-pointer border-2 border-gray-400 bg-gray-50 hover:bg-white text-gray-700">
+        <button className="flex-1 px-2 py-1 font-semibold cursor-pointer border-2 border-gray-400 bg-white hover:bg-gray-50 text-gray-700">
           Print
         </button>
       </div>
