@@ -1,5 +1,5 @@
 import { useUser } from "../../../context/UserProvider";
-import { QRCodeSVG } from "qrcode.react";
+import QrCode from "../../../assets/qrcode.png";
 
 export const Profile = () => {
   const { user } = useUser();
@@ -12,13 +12,7 @@ export const Profile = () => {
       </div>
 
       <div className="w-full bg-gray-200 h-auto aspect-square flex items-center justify-center">
-        <QRCodeSVG
-          value="hackathon-kiez-chatbot.onrender.com/qrcode"
-          size={256}
-          bgColor="#ffffff"
-          fgColor="#000000"
-          className="h-full w-full mx-auto"
-        />
+        <img src={QrCode} className="h-full w-full mx-auto" alt="qr code" />
       </div>
 
       <div className="flex gap-4">
