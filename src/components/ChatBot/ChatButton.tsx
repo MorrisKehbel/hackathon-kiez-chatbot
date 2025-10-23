@@ -11,10 +11,9 @@ export const ChatButton = ({ onClick }: ChatButtonProps) => {
   const [collapsed, setCollapsed] = useState(false);
 
   useEffect(() => {
-    // nach 1 Sekunde den Button einfahren
     const timer = setTimeout(() => {
       setCollapsed(true);
-    }, 1000);
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, []);
