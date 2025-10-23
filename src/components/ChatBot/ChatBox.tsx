@@ -45,18 +45,22 @@ export const ChatBox = ({ messages, setMessages, onClose }: ChatBoxProps) => {
       layout
       initial="hidden"
       animate="visible"
+      onClick={() => setMenuOpen(false)}
       exit="exit"
     >
       <div className="flex justify-between items-center p-2 border-b border-gray-200">
         <button
-          onClick={() => setMenuOpen((prev) => !prev)}
-          className="p-2 hover:bg-gray-200/70 rounded-full cursor-pointer"
+          onClick={(e) => {
+            e.stopPropagation();
+            setMenuOpen((prev) => !prev);
+          }}
+          className="p-2 hover:bg-gray-200/70 cursor-pointer"
         >
           <HiMiniEllipsisHorizontal color="black" size={25} />
         </button>
         <button
           onClick={onClose}
-          className="p-2 hover:bg-gray-200/70 rounded-full cursor-pointer"
+          className="p-2 hover:bg-gray-200/70 cursor-pointer"
         >
           <HiXMark color="black" size={25} />
         </button>
@@ -66,7 +70,7 @@ export const ChatBox = ({ messages, setMessages, onClose }: ChatBoxProps) => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          className="bg-white border border-gray-200 shadow-md p-3 m-2 divide-y divide-gray-200"
+          className="absolute top-16 left-2 w-48 bg-white border border-gray-200 shadow-md p-3 divide-y divide-gray-200 z-50"
         >
           {user ? (
             <>
@@ -75,7 +79,7 @@ export const ChatBox = ({ messages, setMessages, onClose }: ChatBoxProps) => {
                   setActiveView("profile");
                   setMenuOpen(false);
                 }}
-                className={`w-full text-left p-2 hover:bg-gray-100 rounded cursor-pointer ${
+                className={`w-full text-left p-2 hover:bg-gray-100 cursor-pointer ${
                   activeView === "profile" ? "text-red-700" : ""
                 }`}
               >
@@ -89,7 +93,7 @@ export const ChatBox = ({ messages, setMessages, onClose }: ChatBoxProps) => {
                   setActiveView("signup");
                   setMenuOpen(false);
                 }}
-                className={`w-full text-left p-2 hover:bg-gray-100 rounded cursor-pointer ${
+                className={`w-full text-left p-2 hover:bg-gray-100 cursor-pointer ${
                   activeView === "signup" ? "text-red-700" : ""
                 }`}
               >
@@ -103,7 +107,7 @@ export const ChatBox = ({ messages, setMessages, onClose }: ChatBoxProps) => {
               setActiveView("map");
               setMenuOpen(false);
             }}
-            className={`w-full text-left p-2 hover:bg-gray-100 rounded cursor-pointer ${
+            className={`w-full text-left p-2 hover:bg-gray-100 cursor-pointer ${
               activeView === "map" ? "text-red-700" : ""
             }`}
           >
@@ -114,7 +118,7 @@ export const ChatBox = ({ messages, setMessages, onClose }: ChatBoxProps) => {
               setActiveView("about");
               setMenuOpen(false);
             }}
-            className={`w-full text-left p-2 hover:bg-gray-100 rounded cursor-pointer ${
+            className={`w-full text-left p-2 hover:bg-gray-100 cursor-pointer ${
               activeView === "about" ? "text-red-700" : ""
             }`}
           >
@@ -125,7 +129,7 @@ export const ChatBox = ({ messages, setMessages, onClose }: ChatBoxProps) => {
               setActiveView("feedback");
               setMenuOpen(false);
             }}
-            className={`w-full text-left p-2 hover:bg-gray-100 rounded cursor-pointer ${
+            className={`w-full text-left p-2 hover:bg-gray-100 cursor-pointer ${
               activeView === "feedback" ? "text-red-700" : ""
             }`}
           >
@@ -135,10 +139,14 @@ export const ChatBox = ({ messages, setMessages, onClose }: ChatBoxProps) => {
             <button
               onClick={() => {
                 logout();
+                setMessages((prev) => {
+                  const systemMessage = prev.find((m) => m.role === "system");
+                  return systemMessage ? [systemMessage] : [];
+                });
                 setActiveView("chat");
                 setMenuOpen(false);
               }}
-              className="w-full text-left p-2 hover:bg-gray-100 rounded cursor-pointer"
+              className="w-full text-left p-2 hover:bg-gray-100 cursor-pointer"
             >
               Sign Out
             </button>

@@ -32,7 +32,7 @@ export const Map = () => {
           </button>
         ))}
       </div>
-      <div className="w-full min-h-64 flex-1 border-2 border-gray-300">
+      <div className="w-full min-h-64 flex-1 border-2 border-gray-300 z-10">
         <MapContainer
           center={[52.52, 13.405]}
           zoom={12}
