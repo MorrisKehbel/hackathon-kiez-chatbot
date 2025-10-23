@@ -1,12 +1,22 @@
-import { ChatWidget } from "./components/ChatBot/ChatWidget";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router";
+import { BearBuddy } from "./pages/BearBuddy";
+import { QrCode } from "./pages/QrCode";
 
 function App() {
-  return (
-    <div className="bg-white min-h-screen">
-      <div className="min-h-screen w-full bg-[url('./assets/example_site.png')] bg-no-repeat bg-center bg-cover"></div>
-      <ChatWidget />
-    </div>
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <>
+        <Route index element={<BearBuddy />} />
+        <Route path="qrcode" element={<QrCode />} />
+      </>
+    )
   );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
