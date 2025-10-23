@@ -3,12 +3,11 @@ import { ChatButton } from "./ChatButton";
 import { ChatBox } from "./ChatBox";
 import { AnimatePresence } from "framer-motion";
 import { fetchKiezData } from "../../data/options";
-import type { ReactNode } from "react";
 
 export type Message = {
   id: string;
   role: "user" | "assistant" | "system";
-  content: ReactNode;
+  content: string | React.ReactNode;
 };
 
 const options = [
@@ -99,7 +98,7 @@ export const ChatWidget = () => {
             {items.map((item: any) => (
               <div key={item.id} className="p-3 mb-2 border shadow-sm bg-white">
                 <h3 className="font-bold text-sm mb-1">
-                  {item.title || item.query}
+                  {item.title || item.course_name || item.query}
                 </h3>
                 {item.company && item.district && (
                   <p className="text-xs text-gray-600 mb-1">
