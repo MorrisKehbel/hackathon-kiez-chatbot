@@ -11,7 +11,7 @@ export const ChatButton = ({ onClick }: ChatButtonProps) => {
 
   return (
     <motion.div
-      className="fixed top-1/2 right-0 z-50 flex items-center shadow-lg"
+      className="fixed top-1/2 right-0 z-50 flex items-center shadow-[0_0_10px_rgba(0,0,0,0.1)]"
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
     >
@@ -21,7 +21,7 @@ export const ChatButton = ({ onClick }: ChatButtonProps) => {
         initial={{ width: 80 }} // img width * 4
         animate={{ width: hovered ? 264 : 80 }}
         transition={{ type: "spring", stiffness: 250, damping: 22 }}
-        className="flex items-center justify-start overflow-hidden bg-gray-100 text-gray-900 cursor-pointer"
+        className="flex items-center justify-start overflow-hidden bg-white text-gray-900 cursor-pointer"
       >
         <div className="flex items-center gap-3">
           <img src={bearbuddyIcon} alt="Open Chat" className="w-20 h-18" />

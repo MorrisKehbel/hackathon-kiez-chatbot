@@ -25,7 +25,7 @@ export const Map = () => {
             className={`flex-1 px-2 py-1 font-semibold cursor-pointer ${
               active === btn.id
                 ? "bg-emerald-500 border-2 border-emerald-400 hover:bg-emerald-400 text-white"
-                : "border-2 border-emerald-400 bg-gray-50 hover:bg-white text-gray-700"
+                : "border-2 border-emerald-400 bg-white hover:bg-gray-50 text-gray-700"
             }`}
           >
             {btn.label}

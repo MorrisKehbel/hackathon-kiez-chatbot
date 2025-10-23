@@ -23,8 +23,10 @@ export const ChatBubble = ({ message }: ChatBubbleProps) => {
           )}
 
           <div
-            className={`p-3 max-w-[75%] text-sm text-gray-900 rounded-lg shadow-sm whitespace-pre-wrap ${
-              message.role === "user" ? "bg-gray-200 break-all" : "bg-white"
+            className={`p-3 max-w-[75%] text-sm text-gray-900 shadow-sm whitespace-pre-wrap ${
+              message.role === "user"
+                ? "bg-gray-200 break-all rounded-tl-lg rounded-tr-lg rounded-bl-lg"
+                : "bg-white rounded-tl-lg rounded-tr-lg rounded-br-lg"
             }`}
           >
             {message.content}
