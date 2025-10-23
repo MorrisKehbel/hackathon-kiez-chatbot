@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { IoSend } from "react-icons/io5";
+import { HiMicrophone } from "react-icons/hi2";
 import bearbuddyIcon from "../../assets/bearbuddy_icon.webp";
 import { fetchChatRes } from "../../data/chat";
 import { chatBot } from "../../data/chatFallback";
@@ -126,20 +127,26 @@ export const ChatInput = ({ setMessages, setActiveView }: ChatInputProps) => {
             onChange={(e) => setInput(e.target.value)}
             type="text"
             placeholder="Ask me as your buddy!"
-            className="w-full h-14 rounded-tr-lg rounded-br-lg pl-4 py-4 pr-10 text-sm focus:outline-none bg-white placeholder:select-none placeholder:text-gray-400 placeholder:font-semibold"
+            className="w-full h-14 rounded-tr-lg rounded-br-lg pl-4 py-4 pr-26 text-sm focus:outline-none bg-white placeholder:select-none placeholder:text-gray-400 placeholder:font-semibold"
           />
-          <button
-            type="submit"
-            disabled={!input.trim()}
-            className={`absolute right-0 top-1/2 -translate-y-1/2 p-2 ${
-              !input.trim()
-                ? "text-gray-400 cursor-not-allowed"
-                : "text-red-600 cursor-pointer hover:scale-105 transition duration-300"
-            }`}
-            aria-label="send message"
-          >
-            <IoSend size={18} />
-          </button>
+
+          <div className="absolute right-0 top-0 bottom-0 flex items-center border-l border-gray-300 pl-2 pr-2 bg-white">
+            <span className=" p-2 text-gray-400 cursor-pointer hover:text-gray-500">
+              <HiMicrophone size={23} />
+            </span>
+            <button
+              type="submit"
+              disabled={!input.trim()}
+              className={`p-2 ${
+                !input.trim()
+                  ? "text-gray-400 cursor-not-allowed"
+                  : "text-red-600 cursor-pointer hover:scale-105 transition duration-300"
+              }`}
+              aria-label="send message"
+            >
+              <IoSend size={18} />
+            </button>
+          </div>
         </div>
       </div>
     </form>
