@@ -1,5 +1,5 @@
-const API_URL = import.meta.env.VITE_API_URL;
-const baseURL = `${API_URL}/api/search`;
+const API_URL = import.meta.env.VITE_API_URL_CHAT;
+const baseURL = `${API_URL}/chat`;
 
 export const fetchChatRes = async (chatInput: string) => {
   try {
@@ -9,8 +9,7 @@ export const fetchChatRes = async (chatInput: string) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        query: chatInput,
-        limit: 5,
+        message: chatInput,
       }),
     });
 
@@ -20,8 +19,10 @@ export const fetchChatRes = async (chatInput: string) => {
     }
 
     const data = await res.json();
+    const items = data.results ?? [];
+    const total = items.length;
 
-    return data;
+    return { total, items };
   } catch (error) {
     console.error("Error creating chat response:", error);
     throw error;
